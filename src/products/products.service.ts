@@ -8,18 +8,22 @@ import { Product } from './entities/product.entity';
 @Injectable()
 export class ProductsService {
   constructor(
-    @InjectRepository(Product) private taskRepository: Repository<Product>,
+    @InjectRepository(Product) private productRepository: Repository<Product>,
   ) {}
   create(product: Product) {
-    return this.taskRepository.save(product);
+    return this.productRepository.save(product);
   }
 
   findAll() {
     return this.taskRepository.find({ relations: { user: true } });
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} product`;
+  findOne(userId: string) {
+    return this.productRepository.find({
+      where: {
+        userId: userId,
+      },
+    });
   }
 
   update(id: number, updateProductDto: UpdateProductDto) {
