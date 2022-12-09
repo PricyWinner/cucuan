@@ -15,11 +15,15 @@ export class ProductsService {
   }
 
   findAll() {
-    return this.productRepository.find({ relations: { user: true } });
+    return this.productRepository.find();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} product`;
+  findOne(userId: string) {
+    return this.productRepository.find({
+      where: {
+        userId: userId,
+      },
+    });
   }
 
   update(id: number, updateProductDto: UpdateProductDto) {

@@ -1,4 +1,3 @@
-import { User } from 'src/users/entities/user.entity';
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity('product')
@@ -10,8 +9,32 @@ export class Product {
   name: string;
 
   @Column()
-  modal: string;
+  modal: number;
 
-  @ManyToOne(() => User, (user) => user.id)
-  user: User;
+  @Column()
+  userId: string;
+
+  @Column()
+  imagePath: string;
+
+  @Column()
+  shopeeIsChecked: boolean;
+  @Column()
+  shopeeAppFee: number;
+  @Column()
+  shopeeProfit: number;
+
+  @Column()
+  tikTokIsChecked: boolean;
+  @Column()
+  tikTokAppFee: number;
+  @Column()
+  tikTokProfit: number;
+
+  @Column()
+  tokpedIsChecked: boolean;
+  @Column()
+  tokpedAppFee: number;
+  @Column()
+  tokpedProfit: number;
 }
