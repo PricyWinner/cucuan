@@ -42,8 +42,8 @@ export class ProductsController {
   // }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.productsService.remove(+id);
+  remove(@Body() product: Product) {
+    return this.productsService.remove(product);
   }
 
   // @Post()

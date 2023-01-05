@@ -32,12 +32,12 @@ export class ProductsService {
   //   .execute();
   // }
 
-  remove(id: number) {
-    const product = this.productRepository.find({
-      where: {
-        id: id,
-      },
-    });
-    return this.productRepository.remove(product[0]);
+  remove(product : Product) {
+    // const product = this.productRepository.find({
+    //   where: {
+    //     id: id,
+    //   },
+    // });
+    return this.productRepository.remove(product);
   }
 }
