@@ -36,39 +36,17 @@ export class ProductsController {
     return this.productsService.findOne(id);
   }
 
-  // @Patch(':id')
-  // update(@Param('id') id: string, @Body() updateProductDto: UpdateProductDto) {
-  //   return this.productsService.update(+id, updateProductDto);
-  // }
+  @Patch(':id/')
+  update(@Param('id') id: number, @Body() product: Product) {
+    return this.productsService.update(id, product);
+  }
 
-  @Delete(':id')
+  @Delete()
   remove(@Body() product: Product) {
     return this.productsService.remove(product);
   }
-
-  // @Post()
-  // @UseInterceptors(
-  //   FileInterceptor('files', {
-  //     storage: diskStorage({
-  //       destination: './uploads/',
-  //       filename: (req, file, cb) => {
-  //         let extension = '';
-
-  //         switch (file.mimetype) {
-  //           case 'image/png': {
-  //             extension = '.png';
-  //           }
-  //         }
-  //         console.log(req);
-
-  //         cb(null, (req.body['product'] as Product).id + extension);
-  //       },
-  //     }),
-  //     //   fileFilter: imageFileFilter,
-  //   }),
-  // )
-  // create(@Body() product: Product, @UploadedFile() file: Express.Multer.File) {
-  //   product.imagePath = file.filename;
-  //   return this.productsService.create(product);
+  // @Delete(':id')
+  // remove2(@Param('id') id: number) {
+  //   return this.productsService.remove2(id);
   // }
 }
