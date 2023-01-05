@@ -14,9 +14,9 @@ export class ProductsService {
     return this.productRepository.save(product);
   }
 
-  findAll() {
-    return this.taskRepository.find({ relations: { user: true } });
-  }
+  // findAll() {
+  //   return this.taskRepository.find({ relations: { user: true } });
+  // }
 
   findOne(userId: string) {
     return this.productRepository.find({

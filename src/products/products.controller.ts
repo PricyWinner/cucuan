@@ -26,10 +26,10 @@ export class ProductsController {
     return this.productsService.create(product);
   }
 
-  @Get()
-  findAll() {
-    return this.productsService.findAll();
-  }
+  // @Get()
+  // findAll() {
+  //   return this.productsService.findAll();
+  // }
 
   @Get(':userId')
   findOne(@Param('userId') id: string) {
