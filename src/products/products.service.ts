@@ -26,11 +26,18 @@ export class ProductsService {
     });
   }
 
-  update(id: number, updateProductDto: UpdateProductDto) {
-    return `This action updates a #${id} product`;
-  }
+  // update(id: number, updateProductDto: UpdateProductDto) {
+  //   return this.productRepository.createQueryBuilder().update().set({ firstName: "Timber", lastName: "Saw" })
+  //   .where("id = :id", { id: 1 })
+  //   .execute();
+  // }
 
   remove(id: number) {
-    return `This action removes a #${id} product`;
+    const product = this.productRepository.find({
+      where: {
+        id: id,
+      },
+    });
+    return this.productRepository.remove(product[0]);
   }
 }
