@@ -26,10 +26,10 @@ export class ProductsController {
     return this.productsService.create(product);
   }
 
-  @Get()
-  findAll() {
-    return this.productsService.findAll();
-  }
+  // @Get()
+  // findAll() {
+  //   return this.productsService.findAll();
+  // }
 
   @Get(':userId')
   findOne(@Param('userId') id: string) {
@@ -42,8 +42,8 @@ export class ProductsController {
   // }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.productsService.remove(+id);
+  remove(@Body() product: Product) {
+    return this.productsService.remove(product);
   }
 
   // @Post()

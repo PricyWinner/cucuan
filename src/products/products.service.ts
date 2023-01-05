@@ -14,9 +14,9 @@ export class ProductsService {
     return this.productRepository.save(product);
   }
 
-  findAll() {
-    return this.taskRepository.find({ relations: { user: true } });
-  }
+  // findAll() {
+  //   return this.taskRepository.find({ relations: { user: true } });
+  // }
 
   findOne(userId: string) {
     return this.productRepository.find({
@@ -32,12 +32,12 @@ export class ProductsService {
   //   .execute();
   // }
 
-  remove(id: number) {
-    const product = this.productRepository.find({
-      where: {
-        id: id,
-      },
-    });
-    return this.productRepository.remove(product[0]);
+  remove(product : Product) {
+    // const product = this.productRepository.find({
+    //   where: {
+    //     id: id,
+    //   },
+    // });
+    return this.productRepository.remove(product);
   }
 }
