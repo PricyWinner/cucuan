@@ -15,7 +15,7 @@ export class ProductsService {
   }
 
   findAll() {
-    return this.productRepository.find();
+    return this.taskRepository.find({ relations: { user: true } });
   }
 
   findOne(userId: string) {
